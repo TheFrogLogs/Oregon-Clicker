@@ -438,26 +438,38 @@ centered = false
 [node name="Stats" type="Node2D" parent="."]
 script = ExtResource("23_pnkm3")
 
-[node name="StatsTitle" type="Label" parent="Stats"]
+[node name="Control" type="Control" parent="Stats"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 30.0
 offset_top = 144.0
-offset_right = 345.0
-offset_bottom = 171.0
+offset_right = 249.0
+offset_bottom = 662.0
+
+[node name="Stats" type="VBoxContainer" parent="Stats/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Stats/Control/Stats"]
+layout_mode = 2
+
+[node name="StatsTitle" type="Label" parent="Stats/Control/Stats/MarginContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("17_bc4kx")
 theme_override_font_sizes/font_size = 24
 text = "Stats"
 metadata/_edit_use_anchors_ = true
 
-[node name="Speed" type="Node2D" parent="Stats"]
-position = Vector2(30, 184)
-
-[node name="title" type="Label" parent="Stats/Speed"]
-offset_right = 70.0
-offset_bottom = 19.0
+[node name="speedTitle" type="Label" parent="Stats/Control/Stats"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("17_bc4kx")
 theme_override_font_sizes/font_size = 16
 text = "Speed"
 metadata/_edit_use_anchors_ = true
+
+[node name="Speed" type="Node2D" parent="Stats"]
+position = Vector2(30, 184)
 
 [node name="value" type="Label" parent="Stats/Speed"]
 offset_left = 51.0
